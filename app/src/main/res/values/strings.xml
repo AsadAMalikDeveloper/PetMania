@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">PetMania</string>
+    <string name="change_language">Change Language</string>
+    <string name="email_id">Email ID:</string>
+    <string name="fullname">Fullname :</string>
+    <string name="password_at_least_8">Password (at least 8 characters):</string>
+    <string name="confirm_password">Confirm Password :</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="forgot_password">Forgot Password ?</string>
+    <string name="remember_me">Remember me</string>
+    <string name="sign_in">Sign In</string>
+    <string name="or">or</string>
+    <string name="search_by_city_or_address">Search by city or address</string>
+    <string name="search_by_name_or_speciality">Search by Name or Speciality</string>
+    <string name="no_posts_yet">No Post Yet</string>
+    <string name="don_t_have_an_account_sign_up">Dont Have An Account ? Sign Up</string>
+    <string name="already_have_an_account_sign_in">Already have An Account ? Sign In</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="app_settings">app_settings</string>
+
+
+    <string name="imagepicker_multiselect_done">Done</string>
+    <string name="imagepicker_multiselect_not_enough_singular">You have to select 1 more image</string>
+    <string name="imagepicker_multiselect_not_enough_plural">You have to select minimum %d images</string>
+    <string name="imagepicker_multiselect_enough_singular">You have selected 1 image</string>
+    <string name="imagepicker_multiselect_enough_plural">You have selected %d images</string>
+    <string name="imagepicker_multiselect_overselect">You cannot select more than %d images</string>
+    <string name="imagepicker_no_image_text_view">There are no image in your device.</string>
+
+    <string name="hint">Add Details of What you are selling\n
+            Note: Complete and every details</string>
+
+    <string name="messageWithLink"><a href="#">edit and view your profile</a></string>
+    <string name="show_my_number_to_ad">Show my number %1$s to ad </string>
+    <string name="favourites">Favourites</string>
+    <string name="logout">Logout</string>
+    <string name="my_account">My Account</string>
+    <string name="home">Home</string>
+    <string name="start_adding_your_favourites">Start Adding Your Favourites</string>
+    <string name="consult_doctor">Consult Doctor</string>
+    <string name="doctors_login_here" >Doctors Login Here</string>
+
+
+</resources>

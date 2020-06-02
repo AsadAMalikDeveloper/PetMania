@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#448AFF</color>
+    <color name="black">#000</color>
+
+    <color name="successGreen">#11A10C</color>
+    <color name="check1">#cddc39</color>
+    <color name="check2">#9e9d24</color>
+    <color name="colorGray01">#c9c9c9</color>
+    <color name="colorGray02">#959595</color>
+
+    <color name="RecyclerBackgroundColor">#d6d6d6</color>
+
+    <color name="navBackground">#55d4e7e1</color>
+
+    <color name="primary">#3F51B5</color>
+<color name="primaryDark">#303F9F</color>
+<color name="accent">#4CAF50</color>
+<color name="primaryText">#212121</color>
+<color name="secondaryText">#727272</color>
+<color name="light_black">#55000000</color>
+<color name="white">#ffffff</color>
+</resources>

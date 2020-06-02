@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AddnewAddressActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@android:color/white"
+        android:background="?attr/colorPrimary">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add new Address"
+            android:fontFamily="@font/arkhip_font"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center"
+            />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="10dp"
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@android:color/background_dark"
+        android:background="@android:color/background_dark" />
+
+    <TextView
+        android:id="@+id/note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider4"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toStartOf="@+id/location_id"
+        android:fontFamily="@font/arkhip_font"
+        android:text="Tap on Location icon to allow PETMANIA to get location on your behalf"
+        android:textAllCaps="false"
+        android:textColor="@android:color/background_dark"
+        android:textSize="12sp" />
+    <ImageButton
+        android:id="@+id/location_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_my_location_black_24dp"
+        android:layout_below="@id/divider4"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="5dp"/>
+    <View
+        android:layout_below="@id/note"
+        android:layout_marginTop="10dp"
+        android:id="@+id/divider5"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_centerHorizontal="true"
+        android:inputType="textCapWords"
+        android:backgroundTint="@android:color/background_dark"
+        android:background="@android:color/background_dark" />
+
+    <EditText
+        android:id="@+id/country_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider5"
+        android:layout_margin="10dp"
+        android:hint="country"/>
+    <EditText
+        android:id="@+id/state_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/country_et"
+        android:layout_margin="10dp"
+        android:inputType="textCapWords"
+        android:hint="state"/>
+    <EditText
+        android:id="@+id/city_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/state_et"
+        android:layout_margin="10dp"
+        android:inputType="textCapWords"
+        android:hint="city"/>
+    <EditText
+        android:id="@+id/postal_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/city_et"
+        android:layout_margin="10dp"
+        android:inputType="textCapWords|number"
+        android:hint="postal code"/>
+    <EditText
+        android:id="@+id/address_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/postal_et"
+        android:layout_margin="10dp"
+        android:inputType="textCapWords|textMultiLine"
+        android:hint="address"/>
+
+    <Button
+        android:onClick="submitLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:text="Update"
+        android:textAllCaps="false"
+        android:layout_margin="10dp"/>
+
+
+</RelativeLayout>

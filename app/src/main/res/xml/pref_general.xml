@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="General">
+        <Preference
+            android:title="App Settings"
+            android:key="@string/app_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:summary="Manage Profile and More"/>
+        <Preference
+            android:title="About"
+            android:key="about_key"
+            android:icon="@drawable/ic_about"
+            android:summary="Read more about PetMania"/>
+        <Preference
+            android:title="How to use Pet Mania"
+            android:icon="@drawable/ic_video_black_24dp"
+            android:summary="Watch a Video And Learn how to use Pet Mania"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Budgeting Pet Mania">
+        <Preference
+            android:title="Like and Share the app"
+            android:key="share_app"
+            android:icon="@drawable/ic_share_black_24dp"
+            android:summary="Pet Mania is free, please feel free to Share"/>
+
+        <Preference
+            android:summary="Made my AZTechnologies"
+            android:title="Copyright ©2019"
+            android:icon="@drawable/ic_copyright_black_24dp"
+            android:key="copyright"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Developer Section"
+        android:key="dev_cateogry">
+        <Preference
+            android:title="Contact"
+            android:key="contact_key"
+            android:icon="@drawable/ic_share_black_24dp"
+            android:summary="Leave us a message"/>
+        <Preference
+            android:title="Policy"
+            android:icon="@drawable/ic_policy"
+            android:key="send_bug_report"
+            android:summary="Pet Mania Private Policy"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

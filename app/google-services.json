@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "100763359690",
+    "firebase_url": "https://petmania-2a11e.firebaseio.com",
+    "project_id": "petmania-2a11e",
+    "storage_bucket": "petmania-2a11e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100763359690:android:e5a89ffb12c3fbd0d71733",
+        "android_client_info": {
+          "package_name": "com.example.petmania"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "100763359690-nrpugo9nbu3vfk0rgpl8dd9uci59u8hv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.petmania",
+            "certificate_hash": "079cb2248334242a651bef9ab387baa527b1a08e"
+          }
+        },
+        {
+          "client_id": "100763359690-4pqbf70rf2558hg014he45g0ng8f9pv3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvKqn-_q6J1d0sPYuWqyayldI-_Itmmt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100763359690-4pqbf70rf2558hg014he45g0ng8f9pv3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

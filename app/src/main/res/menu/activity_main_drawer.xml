@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:id="@+id/home_group">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black"
+            android:title="@string/home" />
+    </group>
+    <group android:id="@+id/account_group">
+
+        <item
+            android:id="@+id/nav_myaccount"
+            android:icon="@drawable/ic_account"
+            android:title="@string/my_account" />
+
+    </group>
+    <group android:id="@+id/fav_group">
+        <item
+            android:id="@+id/nav_fav"
+            android:icon="@drawable/ic_favorite_red_full_24dp"
+            android:iconTint="@android:color/black"
+            android:title="@string/favourites" />
+    </group>
+    <group android:id="@+id/doc_group">
+        <item
+            android:id="@+id/nav_doc"
+            android:icon="@drawable/doc2"
+            android:iconTint="@android:color/black"
+            android:title="@string/consult_doctor" />
+    </group>
+
+    <group android:id="@+id/nav_changeLanguage">
+        <item
+            android:id="@+id/nav_changeLang"
+            android:icon="@drawable/ic_language"
+            android:iconTint="@android:color/black"
+            android:title="@string/change_language" />
+    </group>
+    <group>
+        <item
+            android:id="@+id/nav_signout"
+            android:icon="@drawable/logout"
+            android:title="@string/logout" />
+    </group>
+</menu>

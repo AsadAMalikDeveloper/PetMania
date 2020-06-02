@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">پیٹ مینیا</string>
+    <string name="change_language">زبان تبدیل کریں</string>
+    <string name="email_id"> ای میل کا پتہ: </string>
+    <string name="fullname">پورا نام :</string>
+    <string name="password_at_least_8">پاس ورڈ (کم از کم 8 حروف) :</string>
+    <string name="confirm_password">پاس ورڈ کی تصدیق کریں :</string>
+    <string name="sign_up">سائن اپ</string>
+    <string name="forgot_password">پاسورڈ بھول گے ؟</string>
+    <string name="remember_me">مجھے لاگ ان رکھیں</string>
+    <string name="sign_in">لاگ ان کریں</string>
+    <string name="or">اس کے بجائے</string>
+    <string name="don_t_have_an_account_sign_up">کیا آپ کا اکاؤنٹ نہیں ہے؟ براہ کرم اکاؤنٹ بنائیں </string>
+    <string name="already_have_an_account_sign_in">پہلے سے ہی ایک اکاؤنٹ ہے؟ سائن ان کریں</string>
+    <string name="show_my_number_to_ad">Show my number %1$s to ad</string>
+    <string name="favourites">پسندیدہ اشتہار</string>
+    <string name="logout">باہر جائیں</string>
+    <string name="my_account">پروفائل</string>
+    <string name="home">ہوم پیج</string>
+    <string name="search_by_city_or_address">Search by city or address</string>
+    <string name="search_by_name_or_speciality">Search by Name or Speciality</string>
+    <string name="start_adding_your_favourites">اپنے پسندیدہ اشتہار کو شامل کرنا شروع کریں</string>
+    <string name="no_posts_yet">ابھی تک کوئی پوسٹ نہیں ہے</string>
+    <string name="consult_doctor">ڈاکٹر سے مشورہ کریں </string>
+    <string name="doctors_login_here">ڈاکٹرز یہاں سے لاگ ان کریں </string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="app_settings">app_settings</string>
+
+
+    <string name="imagepicker_multiselect_done">Done</string>
+    <string name="imagepicker_multiselect_not_enough_singular">You have to select 1 more image</string>
+    <string name="imagepicker_multiselect_not_enough_plural">You have to select minimum %d images</string>
+    <string name="imagepicker_multiselect_enough_singular">You have selected 1 image</string>
+    <string name="imagepicker_multiselect_enough_plural">You have selected %d images</string>
+    <string name="imagepicker_multiselect_overselect">You cannot select more than %d images</string>
+    <string name="imagepicker_no_image_text_view">There are no image in your device.</string>
+
+    <string name="hint">Add Details of What you are selling\n
+            Note: Complete and every details</string>
+
+    <string name="messageWithLink"><a href="#">edit and view your profile</a></string>
+</resources>

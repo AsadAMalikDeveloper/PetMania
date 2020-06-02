@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="5dp"
+    app:cardCornerRadius="2dp"
+    android:layout_margin="5dp"
+    android:padding="5dp"
+    android:background="@color/RecyclerBackgroundColor">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/clinic_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clinic Name"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/arkhip_font"
+            android:textSize="22sp"
+            android:padding="5dp"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:id="@+id/branch_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="branch address"
+            android:layout_below="@id/branch_code"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:inputType="textMultiLine|textPostalAddress"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"/>
+        <TextView
+            android:id="@+id/branch_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="branch code"
+            android:layout_below="@id/clinic_name_tv"
+            android:padding="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="@android:color/black"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:id="@+id/branch_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="city"
+            android:layout_alignParentEnd="true"
+            android:layout_alignRight="@id/branch_add"
+            android:layout_margin="8dp"
+            android:drawableEnd="@drawable/ic_location_on_black_12dp"
+            android:padding="5dp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_below="@id/branch_code"/>
+        <RelativeLayout
+            android:layout_below="@id/branch_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/open_time"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Open: 9:00"
+                android:textColor="@android:color/holo_green_light"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/close_time"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Close: 9:00"
+                android:layout_alignParentEnd="true"
+                android:textColor="@android:color/holo_red_light"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

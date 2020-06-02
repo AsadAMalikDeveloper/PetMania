@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="5dp"
+    app:cardCornerRadius="2dp"
+    android:layout_margin="5dp"
+    android:background="@color/RecyclerBackgroundColor">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/doctor_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Doctor Name"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/arkhip_font"
+            android:textSize="22sp"
+            android:padding="5dp"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:id="@+id/doctor_spec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="branch count"
+            android:layout_below="@id/doctor_name_tv"
+            android:padding="5dp"
+            android:textColor="@android:color/black"
+            android:layout_margin="5dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right"
+            android:tint="@android:color/black"
+            android:backgroundTint="@android:color/black"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

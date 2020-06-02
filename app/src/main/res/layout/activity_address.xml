@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AddressActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@android:color/white"
+        android:background="?attr/colorPrimary">
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Address"
+            android:fontFamily="@font/arkhip_font"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center"
+            />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/addnewAddress_container"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/view_line_dotted"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/addnewAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/arkhip_font"
+            android:text="Add new Address"
+            android:textColor="@android:color/background_dark"
+            android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addnewAddress"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/arkhip_font"
+            android:text="click me" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NO ADDRESS FOUND"
+        android:id="@+id/address_notFoundTV"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textColor="@android:color/background_dark"
+        android:fontFamily="@font/arkhip_font"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/addnewAddress_container"
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        android:layout_above="@id/address_nextBtn"
+        android:id="@+id/address_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/address_nextBtn"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:onClick="selectedAddress"
+        android:text="Next"
+        android:layout_margin="5dp"/>
+</RelativeLayout>
