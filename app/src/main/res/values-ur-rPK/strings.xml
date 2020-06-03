@@ -12,6 +12,7 @@
     <string name="sign_in">لاگ ان کریں</string>
     <string name="or">اس کے بجائے</string>
     <string name="don_t_have_an_account_sign_up">کیا آپ کا اکاؤنٹ نہیں ہے؟ براہ کرم اکاؤنٹ بنائیں </string>
+    <string name="don_t_have_an_account_contact">کیا آپ کا اکاؤنٹ نہیں ہے؟ پیٹ مینیا سے رابطہ کریں </string>
     <string name="already_have_an_account_sign_in">پہلے سے ہی ایک اکاؤنٹ ہے؟ سائن ان کریں</string>
     <string name="show_my_number_to_ad">Show my number %1$s to ad</string>
     <string name="favourites">پسندیدہ اشتہار</string>

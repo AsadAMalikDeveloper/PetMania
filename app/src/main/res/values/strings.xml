@@ -14,6 +14,7 @@
     <string name="search_by_name_or_speciality">Search by Name or Speciality</string>
     <string name="no_posts_yet">No Post Yet</string>
     <string name="don_t_have_an_account_sign_up">Dont Have An Account ? Sign Up</string>
+    <string name="don_t_have_an_account_contact">Dont Have An Account ? Contact PetMania</string>
     <string name="already_have_an_account_sign_in">Already have An Account ? Sign In</string>
 
     <!-- TODO: Remove or change this placeholder text -->
