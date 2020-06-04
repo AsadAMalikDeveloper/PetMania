@@ -99,6 +99,10 @@ public interface IPetManiaAPI {
     Call<User> signinInWithEmail(@Field("email") String email);
 
     @FormUrlEncoded
+    @POST("signInWithEmailDr.php")
+    Call<Doctors> signinInWithEmailDr(@Field("email") String email);
+
+    @FormUrlEncoded
     @POST("getUserByUserId.php")
     Call<User> getUserByUserId(@Field("user_id") String user_id);
 

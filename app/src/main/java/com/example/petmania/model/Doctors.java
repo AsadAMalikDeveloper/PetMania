@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public class Doctors  implements Serializable {
     private int id,br_id,dr_show_no;
-    private String dr_email,dr_name,dr_phone,dr_pass,dr_desc,dr_speciality,dr_fee;
+    private String dr_email,dr_name,dr_phone,dr_pass,dr_desc,dr_speciality,dr_fee,error_msg;
 
     public Doctors() {
     }
 
-    public Doctors(int id, int br_id, int dr_show_no, String dr_email, String dr_name, String dr_phone, String dr_pass, String dr_desc, String dr_speciality, String dr_fee) {
+    public Doctors(int id, int br_id, int dr_show_no, String dr_email, String dr_name, String dr_phone, String dr_pass, String dr_desc, String dr_speciality, String dr_fee,String error_msg) {
         this.id = id;
         this.br_id = br_id;
         this.dr_show_no = dr_show_no;
@@ -20,6 +20,15 @@ public class Doctors  implements Serializable {
         this.dr_desc = dr_desc;
         this.dr_speciality = dr_speciality;
         this.dr_fee = dr_fee;
+        this.error_msg = error_msg;
+    }
+
+    public String getError_msg() {
+        return error_msg;
+    }
+
+    public void setError_msg(String error_msg) {
+        this.error_msg = error_msg;
     }
 
     public int getId() {

@@ -23,6 +23,7 @@ import com.example.petmania.database.local.PetManiaRoomDatabase;
 import com.example.petmania.model.Addresses;
 import com.example.petmania.model.Adds;
 import com.example.petmania.model.Category;
+import com.example.petmania.model.Doctors;
 import com.example.petmania.model.User;
 import com.example.petmania.retrofit.IPetManiaAPI;
 import com.example.petmania.retrofit.RetrofitClient;
@@ -53,6 +54,7 @@ public class Common {
     public static String SelectedClinicName = "";
     public static String SelectedBranchCode="";
     public static int SelectedBranchId = -1;
+    public static Doctors currentDoctor =null;
 
     public static IPetManiaAPI getAPI(){
         return RetrofitClient.getClient(BASE_URL).create(IPetManiaAPI.class);

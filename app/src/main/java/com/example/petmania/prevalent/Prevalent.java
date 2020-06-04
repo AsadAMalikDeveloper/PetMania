@@ -14,6 +14,8 @@ public class Prevalent {
     public static final String userEnteredPass="enteredPass";
     public static final String isEdit = "false";
     public static String SelectedBranch ="SelectedBranch";
+    public static String drEmailKey = "drEmailKey";
+    public static String drPassKey = "drPassKey";
 
     //public static String category=;
 }

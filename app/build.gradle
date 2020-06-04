@@ -94,4 +94,10 @@ dependencies {
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
     implementation 'com.miguelcatalan:materialsearchview:1.4.0'
     implementation 'br.com.mauker.materialsearchview:materialsearchview:1.2.3'
+    def nav_version = "2.3.0-beta01"
+
+    // Java language implementation
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 }
