@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">100763359690-4pqbf70rf2558hg014he45g0ng8f9pv3.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://petmania-2a11e.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">100763359690</string>
+    <string name="google_api_key" translatable="false">AIzaSyAvKqn-_q6J1d0sPYuWqyayldI-_Itmmt0</string>
+    <string name="google_app_id" translatable="false">1:100763359690:android:e5a89ffb12c3fbd0d71733</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAvKqn-_q6J1d0sPYuWqyayldI-_Itmmt0</string>
+    <string name="google_storage_bucket" translatable="false">petmania-2a11e.appspot.com</string>
+    <string name="project_id" translatable="false">petmania-2a11e</string>
+</resources>
