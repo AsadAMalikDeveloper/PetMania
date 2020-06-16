@@ -27,6 +27,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="navigationTheme">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorControlHighlight">@color/primary</item>
+    </style>
+
 
 
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">

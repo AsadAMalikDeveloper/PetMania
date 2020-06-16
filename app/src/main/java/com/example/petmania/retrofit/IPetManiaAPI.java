@@ -10,6 +10,7 @@ import com.example.petmania.model.Category;
 import com.example.petmania.model.CheckUserResponse;
 import com.example.petmania.model.Clinic;
 import com.example.petmania.model.Doctors;
+import com.example.petmania.model.Review;
 import com.example.petmania.model.User;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
@@ -55,6 +56,23 @@ public interface IPetManiaAPI {
             @Field("city") String city,
             @Field("postal_code") String postal_code,
             @Field("address") String address);
+    @FormUrlEncoded
+    @POST("addReview.php")
+    Call<Review> addReview(
+            @Field("user_id") int user_id,
+            @Field("dr_id") int dr_id,
+            @Field("review") String review,
+            @Field("rating") String rating,
+            @Field("timestamp") String timestamp);
+
+    @FormUrlEncoded
+    @POST("updateReview.php")
+    Call<Review> updateReview(
+            @Field("user_id") int user_id,
+            @Field("dr_id") int dr_id,
+            @Field("rating") String rating,
+            @Field("review") String review,
+            @Field("timestamp") String timestamp);
 
     @FormUrlEncoded
     @POST("upload_add.php")
@@ -106,6 +124,17 @@ public interface IPetManiaAPI {
     @POST("getUserByUserId.php")
     Call<User> getUserByUserId(@Field("user_id") String user_id);
 
+    @FormUrlEncoded
+    @POST("getReviewByUserId.php")
+    Call<Review> getReviewByUserId(@Field("user_id") int user_id,
+                                   @Field("dr_id") int dr_id);
+
+    @FormUrlEncoded
+    @POST("getAllReviewDrCheck.php")
+    Call<CheckUserResponse> checkDrReview(@Field("dr_id") int dr_id);
+    @FormUrlEncoded
+    @POST("getAllReviewDr.php")
+    Observable<ArrayList<Review>> getAllReviewDr(@Field("dr_id") int dr_id);
 
     @Multipart
     @POST("upload1.php")

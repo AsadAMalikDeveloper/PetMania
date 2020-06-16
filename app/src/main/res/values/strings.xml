@@ -49,6 +49,9 @@
     <string name="start_adding_your_favourites">Start Adding Your Favourites</string>
     <string name="consult_doctor">Consult Doctor</string>
     <string name="doctors_login_here">Doctors Login Here</string>
+    <string name="inbox">Inbox</string>
+    <string name="write_review">Write Review</string>
+    <string name="doctor_name">Doctor Name</string>
 
 
 </resources>

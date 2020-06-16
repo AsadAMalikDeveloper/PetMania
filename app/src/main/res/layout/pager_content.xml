@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -43,19 +44,98 @@
                 android:textColor="@color/black"
                 android:textSize="18sp" />
             <RatingBar
-                android:id="@+id/rating"
+                android:id="@+id/rating_pager"
                 android:layout_below="@id/dr_spec"
                 android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:saveEnabled="true"
+                android:clickable="false"
+                android:isIndicator="true"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:numStars="5"/>
+
+
+
+
+            <RelativeLayout
+                android:background="@color/RecyclerBackgroundColor"
+                android:layout_margin="5dp"
+                android:id="@+id/linear_layout"
+                android:layout_below="@id/rating_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/add_edit_review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/add_review_icon"
+                    android:text="Add/Edit Review"
+                    android:layout_marginTop="5dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignEnd="@id/divider9"
+                    android:layout_alignBottom="@id/add_review_icon"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/add_review_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_alignParentStart="true"
+                    android:tint="@color/primary"
+                    android:src="@drawable/ic_baseline_rate_review_24" />
+
+
+                <ImageView
+                    android:id="@+id/show_review_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignStart="@id/divider9"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_baseline_remove_red_eye_24_small"
+                    android:tint="@android:color/holo_red_dark" />
+
+                <TextView
+                    android:id="@+id/show_review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_toEndOf="@+id/show_review_icon"
+                    android:text="Show Reviews"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/divider9"
+                    android:layout_width="3dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@color/black" />
+            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/relativeLT"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_below="@id/rating"
+                android:layout_below="@id/linear_layout"
                 android:layout_margin="5dp"
                 android:background="#778899"
                 android:layout_centerHorizontal="true"
@@ -301,6 +381,20 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/countReview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dr_spec"
+                android:gravity="bottom|center"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                android:layout_alignBottom="@+id/rating_pager"
+                android:layout_toEndOf="@+id/rating_pager"
+                android:text="0.0 / 0" />
+
+
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

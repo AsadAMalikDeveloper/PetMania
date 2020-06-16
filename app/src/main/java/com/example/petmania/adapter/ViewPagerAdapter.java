@@ -1,16 +1,21 @@
 package com.example.petmania.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,9 +25,14 @@ import androidx.annotation.RequiresApi;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.petmania.R;
+import com.example.petmania.activities.DoctorActivity;
+import com.example.petmania.activities.WriteReviewActivity;
 import com.example.petmania.model.Branches;
+import com.example.petmania.model.CheckUserResponse;
 import com.example.petmania.model.Doctors;
+import com.example.petmania.model.Review;
 import com.example.petmania.prevalent.Prevalent;
+import com.example.petmania.retrofit.IPetManiaAPI;
 import com.example.petmania.utils.Common;
 
 import java.text.ParseException;
@@ -36,12 +46,18 @@ import io.paperdb.Paper;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ViewPagerAdapter extends PagerAdapter {
     private Context context;
     private ArrayList<Doctors> doctorsArrayList;
     private int br_id;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
+    private float ratingSum = 0;
+    private int countReview =0;
+    private float avgRating = 0;
 
     public ViewPagerAdapter(Context context, ArrayList<Doctors> doctorsArrayList) {
         this.context = context;
@@ -78,6 +94,7 @@ public class ViewPagerAdapter extends PagerAdapter {
             return formatTwelve + " PM";
         }
     }
+    @SuppressLint("DefaultLocale")
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @NonNull
     @Override
@@ -94,6 +111,39 @@ public class ViewPagerAdapter extends PagerAdapter {
 //
 //                }));
         Branches branches = Paper.book().read(Prevalent.SelectedBranch);
+        RatingBar ratingBar= view.findViewById(R.id.rating_pager);
+        TextView countReviewTv = view.findViewById(R.id.countReview);
+        Common.getAPI().checkDrReview(doctorsArrayList.get(position).getId())
+                .enqueue(new Callback<CheckUserResponse>() {
+                    @Override
+                    public void onResponse(Call<CheckUserResponse> call, Response<CheckUserResponse> response) {
+                        CheckUserResponse response1 = response.body();
+                        if (response1.isExists()){
+                            compositeDisposable.add(Common.getAPI().getAllReviewDr(doctorsArrayList.get(position).getId())
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .subscribe(reviews ->{
+                                            for (Review review:reviews){
+                                                    float rating = Float.parseFloat(review.getRating());
+                                                    ratingSum = ratingSum+rating;
+                                                    countReview = reviews.size();
+                                                    avgRating = ratingSum/countReview;
+                                                    ratingBar.setRating(avgRating);
+                                                    countReviewTv.setText(new StringBuilder(String.format("%.2f",avgRating)).append("["+countReview+"]"));
+                                            }
+
+
+                                    }));
+                        }else{
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<CheckUserResponse> call, Throwable t) {
+
+                    }
+                });
         String close = changeTime(branches.getBr_close());
         String open = changeTime(branches.getBr_open());
         TextView timing = view.findViewById(R.id.time_tv);
@@ -176,8 +226,50 @@ public class ViewPagerAdapter extends PagerAdapter {
                     }
             });
         }
+        //Review
+        TextView addEditReview = view.findViewById(R.id.add_edit_review);
+        ImageView addEditReviewIcon = view.findViewById(R.id.add_review_icon);
+        TextView showReview = view.findViewById(R.id.show_review);
+        ImageView showReviewIcon = view.findViewById(R.id.show_review_icon);
+
+        addEditReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addReview(position);
+            }
+        });
+        addEditReviewIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addReview(position);
+            }
+        });
+        showReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showReview(position);
+            }
+        });
+        showReviewIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showReview(position);
+            }
+        });
+
         return view;
 
+    }
+
+    private void showReview(int pos) {
+        Toast.makeText(context, "SHOW "+doctorsArrayList.get(pos).getId(), Toast.LENGTH_SHORT).show();
+    }
+
+    private void addReview(int pos) {
+        Intent intent = new Intent(context, WriteReviewActivity.class);
+        intent.putExtra("dr_id",doctorsArrayList.get(pos).getId());
+        intent.putExtra("dr_name",doctorsArrayList.get(pos).getDr_name());
+        context.startActivity(intent);
     }
 
     @Override

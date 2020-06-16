@@ -10,6 +10,8 @@
     <color name="check2">#9e9d24</color>
     <color name="colorGray01">#c9c9c9</color>
     <color name="colorGray02">#959595</color>
+    <color name="home_bg">#e4e6ed</color>
+    <color name="lightWhite">#f2f4fc</color>
 
     <color name="RecyclerBackgroundColor">#d6d6d6</color>
 

@@ -25,8 +25,12 @@
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.DoctorsSigninActivity"></activity>
-        <activity android:name=".activities.DoctorsMainActivity" />
+        <activity android:name=".activities.ShowReviewActivity"></activity>
+        <activity android:name=".activities.WriteReviewActivity" />
+        <activity android:name=".activities.DoctorsSigninActivity" />
+        <activity
+            android:name=".activities.DoctorsMainActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge" />
         <activity android:name=".activities.DoctorDetailActivity" />
         <activity android:name=".activities.DoctorActivity" />
         <activity android:name=".activities.BranchesActivity" />
