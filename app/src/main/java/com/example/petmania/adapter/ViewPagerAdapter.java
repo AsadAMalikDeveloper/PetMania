@@ -26,6 +26,7 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.petmania.R;
 import com.example.petmania.activities.DoctorActivity;
+import com.example.petmania.activities.ShowReviewActivity;
 import com.example.petmania.activities.WriteReviewActivity;
 import com.example.petmania.model.Branches;
 import com.example.petmania.model.CheckUserResponse;
@@ -262,7 +263,10 @@ public class ViewPagerAdapter extends PagerAdapter {
     }
 
     private void showReview(int pos) {
-        Toast.makeText(context, "SHOW "+doctorsArrayList.get(pos).getId(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(context, ShowReviewActivity.class);
+        intent.putExtra("dr_id",doctorsArrayList.get(pos).getId());
+        intent.putExtra("dr_name",doctorsArrayList.get(pos).getDr_name());
+        context.startActivity(intent);
     }
 
     private void addReview(int pos) {
