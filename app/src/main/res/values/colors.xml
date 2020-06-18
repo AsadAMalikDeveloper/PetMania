@@ -12,6 +12,7 @@
     <color name="colorGray02">#959595</color>
     <color name="home_bg">#e4e6ed</color>
     <color name="lightWhite">#f2f4fc</color>
+    <color name="starClr">#f8d371</color>
 
     <color name="RecyclerBackgroundColor">#d6d6d6</color>
 

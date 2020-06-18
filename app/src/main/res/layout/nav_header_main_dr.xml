@@ -54,8 +54,11 @@
         android:layout_centerHorizontal="true"
         android:layout_toEndOf="@+id/app_name"
         android:text="Rated 0.0"
+        android:drawableEnd="@drawable/ic_star"
+        android:drawableTint="@color/starClr"
+        android:drawablePadding="-10dp"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="16sp" />
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
 </RelativeLayout>

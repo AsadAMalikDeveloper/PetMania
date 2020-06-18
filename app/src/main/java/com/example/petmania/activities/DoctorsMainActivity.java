@@ -38,6 +38,8 @@ import com.example.petmania.fragments.DoctorSettingFragment;
 import com.example.petmania.fragments.FavouriteFragment;
 import com.example.petmania.fragments.HomeFragment;
 import com.example.petmania.fragments.SignInFragment;
+import com.example.petmania.model.CheckUserResponse;
+import com.example.petmania.model.Review;
 import com.example.petmania.utils.Common;
 import com.firebase.ui.auth.ui.email.TroubleSigningInFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -45,6 +47,12 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.Objects;
 
 import io.paperdb.Paper;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DoctorsMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     static final float END_SCALE =0.7f;
@@ -52,6 +60,17 @@ public class DoctorsMainActivity extends AppCompatActivity implements Navigation
     private NavigationView navigationView;
     private ImageView menuIcon;
     private LinearLayout contentView;
+    private TextView ratingtv;
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
+    private float ratingSum=0;
+    private int countReview =0;
+    private float avgRating = 0;
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        compositeDisposable.dispose();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +81,48 @@ public class DoctorsMainActivity extends AppCompatActivity implements Navigation
         navigationView = findViewById(R.id.navigation_view);
         menuIcon = findViewById(R.id.menu_icon);
         contentView = findViewById(R.id.content);
+        View headerView = navigationView.getHeaderView(0);
+        ratingtv =headerView.findViewById(R.id.main_rating_dr);
+        setRating();
+
 
         navigationDrawer();
 
     }
+
+    private void setRating() {
+        Common.getAPI().checkDrReview(Common.currentDoctor.getId())
+                .enqueue(new Callback<CheckUserResponse>() {
+                    @Override
+                    public void onResponse(Call<CheckUserResponse> call, Response<CheckUserResponse> response) {
+                        CheckUserResponse response1 = response.body();
+                        if (response1.isExists()){
+                            compositeDisposable.add(Common.getAPI().getAllReviewDr(Common.currentDoctor.getId())
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .subscribe(reviews ->{
+                                        for (Review review:reviews){
+                                            float rating = Float.parseFloat(review.getRating());
+                                            ratingSum = ratingSum+rating;
+                                            countReview = reviews.size();
+                                            avgRating = ratingSum/countReview;
+                                            ratingtv.setText(new StringBuilder("Rated: ").append(String.format("%.2f",avgRating)));
+                                        }
+
+
+                                    }));
+                        }else{
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<CheckUserResponse> call, Throwable t) {
+
+                    }
+                });
+    }
+
     private void navigationDrawer() {
         navigationView.setCheckedItem(R.id.dr_home);
         navigationView.getMenu().performIdentifierAction(R.id.dr_home, 0);
