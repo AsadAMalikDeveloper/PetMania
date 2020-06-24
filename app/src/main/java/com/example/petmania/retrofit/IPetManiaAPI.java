@@ -199,6 +199,10 @@ public interface IPetManiaAPI {
 
     @GET("getAllAds.php")
     Observable<List<Adds>> loadAds();
+    @GET("getDoctors.php")
+    Observable<List<Doctors>> loadDoctors();
+    @GET("getAllUsers.php")
+    Observable<List<User>> loadUsers();
 
     @FormUrlEncoded
     @POST("checkAllAds.php")

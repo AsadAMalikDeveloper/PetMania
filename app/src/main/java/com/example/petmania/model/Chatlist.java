@@ -10,6 +10,10 @@ public class Chatlist {
         this.ad_id = ad_id;
     }
 
+    public Chatlist(int id) {
+        this.id = id;
+    }
+
     public Chatlist() {
     }
 

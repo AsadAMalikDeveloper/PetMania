@@ -30,9 +30,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.petmania.R;
-import com.example.petmania.activities.DoctorDetailActivity;
-import com.example.petmania.activities.DoctorsMainActivity;
-import com.example.petmania.activities.DoctorsSigninActivity;
+import com.example.petmania.activities.doctorapp.DoctorsSigninActivity;
 import com.example.petmania.activities.MainActivity;
 import com.example.petmania.activities.RegisterActivity;
 import com.example.petmania.activities.VerificationEmailActivity;
@@ -40,19 +38,12 @@ import com.example.petmania.model.User;
 import com.example.petmania.prevalent.Prevalent;
 import com.example.petmania.retrofit.IPetManiaAPI;
 import com.example.petmania.utils.Common;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.scottyab.aescrypt.AESCrypt;
 
 import java.security.GeneralSecurityException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
 
 import javax.annotation.Nullable;
-import javax.crypto.EncryptedPrivateKeyInfo;
 
 import io.paperdb.Paper;
 import retrofit2.Call;

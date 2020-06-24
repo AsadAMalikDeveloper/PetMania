@@ -28,6 +28,7 @@ import com.example.petmania.R;
 import com.example.petmania.activities.DoctorActivity;
 import com.example.petmania.activities.ShowReviewActivity;
 import com.example.petmania.activities.WriteReviewActivity;
+import com.example.petmania.activities.doctorapp.UserDocMessagesActivity;
 import com.example.petmania.model.Branches;
 import com.example.petmania.model.CheckUserResponse;
 import com.example.petmania.model.Doctors;
@@ -178,7 +179,11 @@ public class ViewPagerAdapter extends PagerAdapter {
             chatBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "Chat "+doctorsArrayList.get(position).getDr_name(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, UserDocMessagesActivity.class);
+                    intent.putExtra("dr_name",doctorsArrayList.get(position).getDr_name());
+                    intent.putExtra("is_user",true);
+                    intent.putExtra("dr_id",doctorsArrayList.get(position).getId());
+                    context.startActivity(intent);
                 }
             });
             mapBtn.setOnClickListener(new View.OnClickListener() {
@@ -205,7 +210,11 @@ public class ViewPagerAdapter extends PagerAdapter {
             chatBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "Chat "+doctorsArrayList.get(position).getDr_name(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, UserDocMessagesActivity.class);
+                    intent.putExtra("dr_name",doctorsArrayList.get(position).getDr_name());
+                    intent.putExtra("is_user",true);
+                    intent.putExtra("dr_id",doctorsArrayList.get(position).getId());
+                    context.startActivity(intent);
                 }
             });
             callBtn.setOnClickListener(new View.OnClickListener() {

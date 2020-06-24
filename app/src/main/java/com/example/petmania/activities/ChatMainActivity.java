@@ -7,12 +7,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
 import android.os.Bundle;
-
 import com.example.petmania.R;
-import com.example.petmania.fragments.ChatMainFragment;
 import com.example.petmania.fragments.ChatsFragment;
+import com.example.petmania.fragments.UserDocChatFragment;
 import com.example.petmania.model.Chats;
 import com.example.petmania.utils.Common;
 import com.google.android.material.tabs.TabLayout;
@@ -21,13 +19,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class ChatMainActivity extends AppCompatActivity {
 
-    private DatabaseReference reference;
+    private DatabaseReference userChatReference;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     @Override
@@ -37,8 +33,8 @@ public class ChatMainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);
 
-        reference = FirebaseDatabase.getInstance().getReference("Chats");
-        reference.addValueEventListener(new ValueEventListener() {
+        userChatReference = FirebaseDatabase.getInstance().getReference("Chats");
+        userChatReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -51,7 +47,8 @@ public class ChatMainActivity extends AppCompatActivity {
                     }
                 }
                 if (unread==0){
-                    viewPageAdapter.addFragment(new ChatsFragment(),"inbox");
+                    viewPageAdapter.addFragment(new ChatsFragment(),"User inbox");
+                    viewPageAdapter.addFragment(new UserDocChatFragment(),"Doctor Inbox");
                 }else {
                     viewPageAdapter.addFragment(new ChatsFragment(), "(" + unread + ") unread Messages");
                 }

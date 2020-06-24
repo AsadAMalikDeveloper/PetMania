@@ -8,6 +8,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.example.petmania.activities.MessageActivity;
+import com.example.petmania.activities.doctorapp.UserDocMessagesActivity;
 import com.example.petmania.utils.Common;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -22,23 +23,45 @@ public class MyFCMServices extends FirebaseMessagingService {
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
         Map<String,String> dataRecv = remoteMessage.getData();
-        int user_id = Integer.parseInt(dataRecv.get("user_id"));
-        int ad_id = Integer.parseInt(dataRecv.get("ad_id"));
+        String isUser = dataRecv.get("is_user");
+        if (isUser.equals("true")){
+            int user_id = Integer.parseInt(dataRecv.get("user_id"));
+            int ad_id = Integer.parseInt(dataRecv.get("ad_id"));
+            SharedPreferences sharedPreferences = getSharedPreferences("PREFS",MODE_PRIVATE);
+            String chatUser = sharedPreferences.getString("currentChatUser","none");
 
-        SharedPreferences sharedPreferences = getSharedPreferences("PREFS",MODE_PRIVATE);
-        String chatUser = sharedPreferences.getString("currentChatUser","none");
+
+            intent = new Intent(getApplicationContext(),MessageActivity.class);
+            intent.putExtra("user_id",user_id);
+            intent.putExtra("ad_id",ad_id);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            if (dataRecv!=null){
+                if (!chatUser.equals(String.valueOf(user_id))) {
+                    Common.showNotification(this, new Random().nextInt(),
+                            dataRecv.get(Common.NOTI_TITLE),
+                            dataRecv.get(Common.NOTI_CONTENT),
+                            intent);
+                }
+            }
+        }else {
+            int user_id = Integer.parseInt(dataRecv.get("user_id"));
+            int dr_id = Integer.parseInt(dataRecv.get("dr_id"));
+
+            SharedPreferences sharedPreferences = getSharedPreferences("PREFS",MODE_PRIVATE);
+            String chatUser = sharedPreferences.getString("currentChatUser","none");
 
 
-        intent = new Intent(getApplicationContext(),MessageActivity.class);
-        intent.putExtra("user_id",user_id);
-        intent.putExtra("ad_id",ad_id);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        if (dataRecv!=null){
-            if (!chatUser.equals(String.valueOf(user_id))) {
-                Common.showNotification(this, new Random().nextInt(),
-                        dataRecv.get(Common.NOTI_TITLE),
-                        dataRecv.get(Common.NOTI_CONTENT),
-                        intent);
+            intent = new Intent(getApplicationContext(), UserDocMessagesActivity.class);
+            intent.putExtra("user_id",user_id);
+            intent.putExtra("dr_id",dr_id);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            if (dataRecv!=null){
+                if (!chatUser.equals(String.valueOf(user_id))) {
+                    Common.showNotification(this, new Random().nextInt(),
+                            dataRecv.get(Common.NOTI_TITLE),
+                            dataRecv.get(Common.NOTI_CONTENT),
+                            intent);
+                }
             }
         }
     }

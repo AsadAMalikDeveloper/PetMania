@@ -3,6 +3,7 @@ package com.example.petmania.adapter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,80 +35,124 @@ import java.util.List;
 import java.util.Locale;
 
 public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHolder> {
-    public static final int MSG_TYPE_LEFT =0;
-    public static final int MSG_TYPE_RIGHT =1;
+    public static final int MSG_TYPE_LEFT = 0;
+    public static final int MSG_TYPE_RIGHT = 1;
 
     private Context context;
-    private List<Chats>chatsList;
+    private List<Chats> chatsList;
     private String imageUrl;
     private String ad_id;
+    private boolean isUser;
 
-    public MessagesAdapter(Context context, List<Chats> chatsList, String ad_id) {
+    public MessagesAdapter(Context context, List<Chats> chatsList, String ad_id, boolean isUser) {
         this.context = context;
         this.chatsList = chatsList;
-        this.ad_id= ad_id;
+        this.ad_id = ad_id;
+        this.isUser = isUser;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if (viewType == MSG_TYPE_RIGHT){
-            View view = LayoutInflater.from(context).inflate(R.layout.chat_item_right,parent,false);
+        if (viewType == MSG_TYPE_RIGHT) {
+            View view = LayoutInflater.from(context).inflate(R.layout.chat_item_right, parent, false);
             return new ViewHolder(view);
-        }else {
-            View view = LayoutInflater.from(context).inflate(R.layout.chat_item_left,parent,false);
+        } else {
+            View view = LayoutInflater.from(context).inflate(R.layout.chat_item_left, parent, false);
             return new ViewHolder(view);
         }
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Chats chats=chatsList.get(position);
+        Chats chats = chatsList.get(position);
         String message = chats.getMessage();
         String timestamp = chats.getTimestamp();
 
         Calendar calendar = Calendar.getInstance(Locale.ENGLISH);
         calendar.setTimeInMillis(Long.parseLong(timestamp));
-        String dateTime = DateFormat.format("dd/MM/yyyy hh:mm aa",calendar).toString();
-        holder.messageTv.setText(message);
-        holder.timeTv.setText(dateTime);
-        try {
-            Picasso.get().load(R.drawable.ic_default).placeholder(R.drawable.ic_default).into(holder.profileTv);
-        }catch (Exception e){
-            Picasso.get().load(R.drawable.ic_default).into(holder.profileTv);
-        }
-        if (position==chatsList.size()-1){
-            if (chats.isIsseen()){
-                holder.isSeenTv.setText("Seen");
-            }else {
-                holder.isSeenTv.setText("Delivered");
+        String dateTime = DateFormat.format("dd/MM/yyyy hh:mm aa", calendar).toString();
+        if (isUser) {
+            holder.messageTv.setText(message);
+            holder.timeTv.setText(dateTime);
+            try {
+                Picasso.get().load(R.drawable.ic_default).placeholder(R.drawable.ic_default).into(holder.profileTv);
+            } catch (Exception e) {
+                Picasso.get().load(R.drawable.ic_default).into(holder.profileTv);
             }
-        }else {
-            holder.isSeenTv.setVisibility(View.GONE);
-        }
-        
-        holder.messageLayout.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Delete Message");
-                builder.setMessage("are you sure you want to delete this message?");
-                builder.setPositiveButton("delete", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        deleteMessage(position);
-                    }
-                });
-                builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                });
-                builder.create().show();
-                return false;
+            if (position == chatsList.size() - 1) {
+                if (chats.isIsseen()) {
+                    holder.isSeenTv.setText("Seen");
+                } else {
+                    holder.isSeenTv.setText("Delivered");
+                }
+            } else {
+                holder.isSeenTv.setVisibility(View.GONE);
             }
-        });
+
+            holder.messageLayout.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("Delete Message");
+                    builder.setMessage("are you sure you want to delete this message?");
+                    builder.setPositiveButton("delete", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            deleteMessage(position);
+                        }
+                    });
+                    builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    builder.create().show();
+                    return false;
+                }
+            });
+        } else {
+            holder.messageTv.setText(message);
+            holder.timeTv.setText(dateTime);
+            try {
+                Picasso.get().load(R.drawable.ic_default).placeholder(R.drawable.ic_default).into(holder.profileTv);
+            } catch (Exception e) {
+                Picasso.get().load(R.drawable.ic_default).into(holder.profileTv);
+            }
+            if (position == chatsList.size() - 1) {
+                if (chats.isIsseen()) {
+                    holder.isSeenTv.setText("Seen");
+                } else {
+                    holder.isSeenTv.setText("Delivered");
+                }
+            } else {
+                holder.isSeenTv.setVisibility(View.GONE);
+            }
+
+            holder.messageLayout.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("Delete Message");
+                    builder.setMessage("are you sure you want to delete this message?");
+                    builder.setPositiveButton("delete", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            deleteMessage(position);
+                        }
+                    });
+                    builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    builder.create().show();
+                    return false;
+                }
+            });
+        }
     }
 
     private void deleteMessage(int position) {
@@ -118,7 +163,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHo
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot:dataSnapshot.getChildren()){
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Chats chats = snapshot.getValue(Chats.class);
                     if (chats.getSender() == Common.currentUser.getUser_id()) {
                         //snapshot.getRef().removeValue();
@@ -126,8 +171,8 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHo
                         HashMap<String, Object> hashMap = new HashMap<>();
                         hashMap.put("message", "this message was deleted");
                         snapshot.getRef().updateChildren(hashMap);
-                    }else {
-                        Toast.makeText(context, "you only delete your messages"+Common.currentUser.getUser_id() , Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "you only delete your messages" + Common.currentUser.getUser_id(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -147,8 +192,9 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView profileTv;
-        TextView messageTv,timeTv,isSeenTv;
+        TextView messageTv, timeTv, isSeenTv;
         LinearLayout messageLayout;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             profileTv = itemView.findViewById(R.id.profileTv);
@@ -161,10 +207,18 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHo
 
     @Override
     public int getItemViewType(int position) {
-        if (chatsList.get(position).getSender()== Common.currentUser.getUser_id()){
-            return MSG_TYPE_RIGHT;
-        }else {
-            return MSG_TYPE_LEFT;
+        if (isUser) {
+            if (chatsList.get(position).getSender() == Common.currentUser.getUser_id()) {
+                return MSG_TYPE_RIGHT;
+            } else {
+                return MSG_TYPE_LEFT;
+            }
+        } else {
+            if (chatsList.get(position).getSender() == Common.currentDoctor.getId()) {
+                return MSG_TYPE_RIGHT;
+            } else {
+                return MSG_TYPE_LEFT;
+            }
         }
     }
 }

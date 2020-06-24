@@ -50,6 +50,7 @@ public class Common {
     public static final String NOTI_TITLE = "title";
     public static final String NOTI_CONTENT = "content";
     private static final String TOKEN_REF = "Tokens";
+    private static final String TOKEN_DR_REF = "TokensDr";
     public static SpaceNavigationView bottomNavigationView = null;
     public static String SelectedClinicName = "";
     public static String SelectedBranchCode="";
@@ -122,6 +123,19 @@ public class Common {
                 .getReference(Common.TOKEN_REF)
                 .child(String.valueOf(Common.currentUser.getUser_id()))
                 .setValue(new TokenModel(Common.currentUser.getName(),myToken))
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(context, "[TOKEN]  "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+    public static void updateDrToken(Context context, String myToken) {
+
+        FirebaseDatabase.getInstance()
+                .getReference(Common.TOKEN_DR_REF)
+                .child(String.valueOf(Common.currentDoctor.getId()))
+                .setValue(new TokenModel(Common.currentDoctor.getDr_name(),myToken))
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {

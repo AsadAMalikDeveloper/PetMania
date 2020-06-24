@@ -237,6 +237,7 @@ public class MessageActivity extends AppCompatActivity {
                     Map<String,String> notiData = new HashMap<>();
                     notiData.put(Common.NOTI_TITLE,"New Message");
                     notiData.put(Common.NOTI_CONTENT,""+Common.currentUser.getName()+": "+message);
+                    notiData.put("is_user","true");
                     notiData.put("user_id", String.valueOf(sender));
                     notiData.put("ad_id",String.valueOf(ad_id));
                     FCMSendData sendData = new FCMSendData(tokenModel.getToken(),notiData);
@@ -340,7 +341,7 @@ public class MessageActivity extends AppCompatActivity {
                     chats.getReciever()==userId && chats.getSender()==myId){
                         chatsList.add(chats);
                     }
-                    adapter= new MessagesAdapter(MessageActivity.this,chatsList,String.valueOf(ad_id));
+                    adapter= new MessagesAdapter(MessageActivity.this,chatsList,String.valueOf(ad_id),true);
                     recyclerView.setAdapter(adapter);
                 }
             }
