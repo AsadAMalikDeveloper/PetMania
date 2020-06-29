@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.NewFeedsSelectedPetActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rect01"
+        android:padding="10dp">
+
+        <ImageButton
+            android:id="@+id/back_btn_selected_pet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@null"
+            android:src="@drawable/ic_arrow_back_gray"
+            android:tint="@color/white" />
+
+
+        <ImageView
+            android:id="@+id/selected_pet_Iv"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/back_btn_selected_pet"
+            android:scaleType="fitXY"
+            android:src="@drawable/app_icon_foreground" />
+
+        <TextView
+            android:id="@+id/selected_pet_nameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/selected_pet_Iv"
+            android:fontFamily="@font/arkhip_font"
+            android:maxLines="1"
+            android:text="name"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/selected_pet_image"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/toolbarRl"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/img_default" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/selected_pet_image"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/scrollViewRl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:background="@color/banner_bg_light">
+
+                <LinearLayout
+                    android:id="@+id/featured_background"
+                    android:layout_width="170dp"
+                    android:layout_height="280dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/banner_bg"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/selected_pet_nameTv_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:fontFamily="@font/baloo"
+                        android:gravity="center"
+                        android:text="Pet Name"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/selected_pet_desc_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="All The Information About this Pet is here !\n (Scroll Left or Right)" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/selected_pet_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/featured_background"
+                    android:background="@color/home_bg" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_below="@id/scrollViewRl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/ratingRl">
+                <TextView
+                    android:id="@+id/behTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rating about their Behaviour :"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/baloo"
+                    android:textColor="@color/black"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="5dp"/>
+
+                <TextView
+                    android:id="@+id/indoorTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/behTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Indoor"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/indoorRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/indoorTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/indoorTxt"
+                    android:numStars="5" />
+
+                <TextView
+                    android:id="@+id/lapTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/indoorTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Lap"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/lapRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/lapTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/lapTxt"
+                    android:numStars="5" />
+
+                <TextView
+                    android:id="@+id/adaptabilityTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/lapTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Adaptability"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/adaptabilityRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/adaptabilityTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/adaptabilityTxt"
+                    android:numStars="5" />
+
+                <TextView
+                    android:id="@+id/affection_levelTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/adaptabilityTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Affection Level"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/affection_levelRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/affection_levelTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/affection_levelTxt"
+                    android:numStars="5" />
+
+                <TextView
+                    android:id="@+id/child_friendlyTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/affection_levelTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Child Friendly"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/child_friendlyRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/child_friendlyTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/child_friendlyTxt"
+                    android:numStars="5" />
+
+                <TextView
+                    android:id="@+id/dog_friendlyTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/child_friendlyTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Dog Friendly"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/dog_friendlyRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/dog_friendlyTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/dog_friendlyTxt"
+                    android:numStars="5" />
+                <TextView
+                    android:id="@+id/energy_levelTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dog_friendlyTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Energy Level"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/energy_levelRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/energy_levelTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/energy_levelTxt"
+                    android:numStars="5" />
+
+                <TextView
+                    android:id="@+id/groomingTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/energy_levelTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Grooming"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/groomingRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/groomingTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/groomingTxt"
+                    android:numStars="5" />
+                <TextView
+                    android:id="@+id/health_issuesTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/groomingTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Health Issues"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/health_issuesRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/health_issuesTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/health_issuesTxt"
+                    android:numStars="5" />
+                <TextView
+                    android:id="@+id/intelligenceTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/health_issuesTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Intelligence"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/intelligenceRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/intelligenceTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/intelligenceTxt"
+                    android:numStars="5" />
+                <TextView
+                    android:id="@+id/shedding_levelTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/intelligenceTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Shedding Level"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/shedding_levelRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/shedding_levelTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/shedding_levelTxt"
+                    android:numStars="5" />
+                <TextView
+                    android:id="@+id/social_needsTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/shedding_levelTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Social Needs"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/social_needsRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/social_needsTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/social_needsTxt"
+                    android:numStars="5" />
+                <TextView
+                    android:id="@+id/stranger_friendlyTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/social_needsTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Stranger Friendly"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/stranger_friendlyRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/stranger_friendlyTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/stranger_friendlyTxt"
+                    android:numStars="5" />
+                <TextView
+                    android:id="@+id/vocalisationTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/stranger_friendlyTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Vocalisation"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/vocalisationRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/vocalisationTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/vocalisationTxt"
+                    android:numStars="5" />
+
+                <TextView
+                    android:id="@+id/experimentalTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/vocalisationTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Experimental"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/experimentalRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/experimentalTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/experimentalTxt"
+                    android:numStars="5" />
+                <TextView
+                    android:id="@+id/hairlessTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/experimentalTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Hairless"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/hairlessRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/hairlessTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/hairlessTxt"
+                    android:numStars="5" />
+
+                <TextView
+                    android:id="@+id/naturalTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/hairlessTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Natural"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/naturalRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/naturalTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/naturalTxt"
+                    android:numStars="5" />
+
+                <TextView
+                    android:id="@+id/rareTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/naturalTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Rare"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/rareRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/rareTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/rareTxt"
+                    android:numStars="5" />
+
+                <TextView
+                    android:id="@+id/rexTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rareTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Rex"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/rexRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/rexTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/rexTxt"
+                    android:numStars="5" />
+                <TextView
+                    android:id="@+id/suppressed_tailTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rexTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Suppressed Tail"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/suppressed_tailRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/suppressed_tailTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/suppressed_tailTxt"
+                    android:numStars="5" />
+
+                <TextView
+                    android:id="@+id/short_legsTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/suppressed_tailTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Short Legs"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/short_legsRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/short_legsTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/short_legsTxt"
+                    android:numStars="5" />
+                <TextView
+                    android:id="@+id/hypoallergenicTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/short_legsTxt"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="Hypoallergenic"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RatingBar
+                    android:id="@+id/hypoallergenicRb"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/hypoallergenicTxt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignBottom="@id/hypoallergenicTxt"
+                    android:numStars="5" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
