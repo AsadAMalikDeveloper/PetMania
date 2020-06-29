@@ -6,13 +6,16 @@ import com.example.petmania.model.Addresses;
 import com.example.petmania.model.Adds;
 import com.example.petmania.model.Adds_images;
 import com.example.petmania.model.Branches;
+import com.example.petmania.model.CatApiBreed;
 import com.example.petmania.model.Category;
 import com.example.petmania.model.CheckUserResponse;
 import com.example.petmania.model.Clinic;
 import com.example.petmania.model.Doctors;
+import com.example.petmania.model.DogApiBreed;
 import com.example.petmania.model.Review;
+import com.example.petmania.model.SelectedCat;
+import com.example.petmania.model.SelectedDog;
 import com.example.petmania.model.User;
-import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 
 import java.util.ArrayList;
@@ -26,11 +29,11 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.PartMap;
+import retrofit2.http.Query;
 
 public interface IPetManiaAPI {
     @FormUrlEncoded
@@ -159,6 +162,17 @@ public interface IPetManiaAPI {
     Call<User> updateVkey(@Field("email") String email,
                           @Field("value") int value);
 
+
+    @GET("https://api.thedogapi.com/v1/breeds")
+    Observable<ArrayList<DogApiBreed>> getAllDogs();
+    @GET("https://api.thecatapi.com/v1/breeds")
+    Observable<ArrayList<CatApiBreed>> getAllCats();
+
+    @GET("https://api.thedogapi.com/v1/images/search")
+    Call<List<SelectedDog>> getDog(@Query("breed_ids") int breed_ids);
+
+    @GET("https://api.thecatapi.com/v1/images/search")
+    Call<List<SelectedCat>> getCat(@Query("breed_id") String breed_id);
 
     @GET("getCategories.php")
     Observable<ArrayList<Category>> getCategories();

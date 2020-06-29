@@ -34,7 +34,6 @@ import com.example.petmania.activities.MainActivity;
 import com.example.petmania.fragments.AccountFragment;
 import com.example.petmania.fragments.ClinicFragment;
 import com.example.petmania.fragments.DoctorHomeFragment;
-import com.example.petmania.fragments.DoctorProfileFragment;
 import com.example.petmania.fragments.DoctorSettingFragment;
 import com.example.petmania.fragments.FavouriteFragment;
 import com.example.petmania.fragments.HomeFragment;
@@ -71,7 +70,7 @@ public class DoctorsMainActivity extends AppCompatActivity implements Navigation
     private int countReview = 0;
     private float avgRating = 0;
     private FrameLayout frameLayout;
-    private static final int homeFragmentNo = 1, chatFragmentNo = 2;
+    private static final int homeFragmentNo = 1, chatFragmentNo = 2,profileFragmentNo =3;
     private int currentFragment = -1;
 
     @Override
@@ -210,7 +209,7 @@ public class DoctorsMainActivity extends AppCompatActivity implements Navigation
                 setFragment(new DoctorsChatFragment(), chatFragmentNo);
                 break;
             case R.id.dr_profile:
-                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                setFragment(new DoctorProfileFragment(),profileFragmentNo);
                 break;
         }
         return true;

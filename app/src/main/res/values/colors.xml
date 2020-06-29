@@ -10,7 +10,6 @@
     <color name="check2">#9e9d24</color>
     <color name="colorGray01">#c9c9c9</color>
     <color name="colorGray02">#959595</color>
-    <color name="home_bg">#e4e6ed</color>
     <color name="lightWhite">#f2f4fc</color>
     <color name="starClr">#f8d371</color>
 
@@ -25,4 +24,13 @@
 <color name="secondaryText">#727272</color>
 <color name="light_black">#55000000</color>
 <color name="white">#ffffff</color>
+
+    <color name="home_bg">#e4e6ed</color>
+    <color name="banner_bg">#F1E9CE</color>
+    <color name="banner_bg_light">#56F1E9CE</color>
+
+    <color name="card1">#d4cbe5</color>
+    <color name="card2">#7adccf</color>
+    <color name="card3">#f7c59f</color>
+    <color name="card4">#b8d7f5</color>
 </resources>

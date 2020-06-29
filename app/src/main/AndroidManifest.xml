@@ -25,7 +25,8 @@
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.doctorapp.UserDocMessagesActivity"></activity>
+        <activity android:name=".activities.NewFeedsSelectedPetActivity"></activity>
+        <activity android:name=".activities.doctorapp.UserDocMessagesActivity" />
         <activity android:name=".activities.ShowReviewActivity" />
         <activity android:name=".activities.WriteReviewActivity" />
         <activity android:name=".activities.doctorapp.DoctorsSigninActivity" />
@@ -78,6 +79,9 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

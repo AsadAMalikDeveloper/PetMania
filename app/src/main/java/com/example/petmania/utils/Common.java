@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -119,16 +120,19 @@ public class Common {
 
     public static void updateToken(Context context, String myToken) {
 
-        FirebaseDatabase.getInstance()
-                .getReference(Common.TOKEN_REF)
-                .child(String.valueOf(Common.currentUser.getUser_id()))
-                .setValue(new TokenModel(Common.currentUser.getName(),myToken))
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(context, "[TOKEN]  "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+        if (!TextUtils.isEmpty(String.valueOf(Common.currentUser.getUser_id()))){
+
+            FirebaseDatabase.getInstance()
+                    .getReference(Common.TOKEN_REF)
+                    .child(String.valueOf(Common.currentUser.getUser_id()))
+                    .setValue(new TokenModel(Common.currentUser.getName(),myToken))
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(context, "[TOKEN]  "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
     public static void updateDrToken(Context context, String myToken) {
 
