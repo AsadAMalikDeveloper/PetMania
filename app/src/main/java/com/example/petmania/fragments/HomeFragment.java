@@ -62,7 +62,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-            if(Common.bottomNavigationView!=null){
+            if(Common.bottomNavigationView!=null) {
                 Common.bottomNavigationView.setVisibility(View.VISIBLE);
             }
         load();
